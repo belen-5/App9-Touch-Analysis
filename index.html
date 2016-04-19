@@ -15,6 +15,7 @@
   Authors in chronological order of contribution:
   Author 1: Timothy E. Riedel
   Author 2:  E. Belen Gutierrez
+  Author 3:  Allison Hendon
   
   References:
   http://docs.webplatform.org/wiki/concepts/programming/drawing_images_onto_canvas#Loading_the_image_programmatically
@@ -24,12 +25,10 @@
   http://stackoverflow.com/questions/11929099/html5-canvas-drawimage-ratio-bug-ios
   
   Brief Description of Goal of Code:
-  Learn how to use "the more powerful features of HTML5 on a mobile device" by using "the camera feature of your phone
-  or the file system of your computer to load an image onto a canvas element."  Afterwards, perform some basic image
-  analysis by coding the app to look "for the color blue" in the image and magnify it.
+  Similarly to App 8, this App is doing some basic image analysis.  Make an app that can compare the color of two tubes that the user selects after an image of the tubes is uploaded.
  
   Known Issues:
-  3/31 @ 5:42p - No issues! YAY :D IT WORKS #BLESSED
+  4/19 @ 1:45p - None
 -->
 
  <head>
@@ -117,6 +116,19 @@ DON'T DELETE OR TOUCH ME EVER!!!
           
           mtx.putImageData(imageData, 0,0); // overrides myCanvas altered image & displays the blue image on myCanvas2
           
+          function initialise() { 
+           var canvas = document.getElementById("myCanvas"); //gets a reference to the canvas
+           canvas.addEventListener("touchstart", doTouchStart, false); //adds a listener
+          }
+          
+          function doTouchStart(event) {
+           event.preventDefault ();
+           
+           canvas_x = event.targetTouches[0].pageX; //where the x-coordinate touches are stored
+           canvas_y = event.targetTouches[0].pageY; //where the y-coordinate touches are stored
+           alert("X=" + canvas_x + "Y=" + canvas_y); //displays the X & Y in an alert box
+          }
+         
           
           
           
@@ -139,10 +151,10 @@ DON'T DELETE OR TOUCH ME EVER!!!
  </script>
  </head>
 
- <body>
+ <body onload=initialise()>
   <div data-role="page">
     <div data-role="header">
-    <h1>Primary Colors</h1></div><!-- /header:  topic for the assignment -->
+    <h1>Image Analysis</h1></div><!-- /header:  topic for the assignment -->
     <div data-role="content">	
       <center><h2>Push button to take picture.</h2></center><!-- I like things centered, so that's what I did -->
       <center><div><!-- I like things centered, so that's what I did -->
