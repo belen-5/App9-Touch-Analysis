@@ -15,7 +15,7 @@
   Authors in chronological order of contribution:
   Author 1: Timothy E. Riedel
   Author 2:  E. Belen Gutierrez
-  Author 3:  Allison Hendon
+  Author 3: 
   
   References:
   http://docs.webplatform.org/wiki/concepts/programming/drawing_images_onto_canvas#Loading_the_image_programmatically
@@ -28,7 +28,7 @@
   Similarly to App 8, this App is doing some basic image analysis.  Make an app that can compare the color of two tubes that the user selects after an image of the tubes is uploaded.
  
   Known Issues:
-  4/19 @ 1:45p - None
+  4/19 @ 2:32p - Initialise function is not defined
 -->
 
  <head>
@@ -152,7 +152,19 @@ DON'T DELETE OR TOUCH ME EVER!!!
  </head>
 
  <body onload=initialise()>
-  <div data-role="page">
+  <div data-role="page" id="page1">
+   <div data-role="header">
+    <h1>Image Analysis</h1></div><!-- /header:  topic for the assignment -->
+  <div data-role="content">
+    <center></center>
+    <a href="#page2" data-role="button">Click here to start!</a>
+   </div><!-- content --> 
+  <div data-role="footer" data-position="fixed">
+      <center><p>DIY Diagnostics</p></center><!-- I like things centered, so that's what I did -->
+    </div><!-- /footer:  tries to make it look more professional & science-y -->
+  </div><!-- page -->
+  
+  <div data-role="page" id="page2">
     <div data-role="header">
     <h1>Image Analysis</h1></div><!-- /header:  topic for the assignment -->
     <div data-role="content">	
