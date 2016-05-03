@@ -28,7 +28,7 @@
   Similarly to App 8, this App is doing some basic image analysis.  Make an app that can compare the color of two tubes that the user selects after an image of the tubes is uploaded.
  
   Known Issues:
-  4/19 @ 2:32p - Initialise function is not defined
+  5/3 @ 3:09p - Initialise function is not defined & adding the blue pixel count turned the image black, lol.
 -->
 
  <head>
@@ -110,7 +110,7 @@ DON'T DELETE OR TOUCH ME EVER!!!
           
           for (var i = 0; i < data.length; i += 4) {
            data[i] = 0; //controls red pixels
-           data[i + 1] = 0;  //controls green pixels
+           //data[i + 1] = 0;  //controls green pixels
            data[i + 2] = 0; //added this on 5/3 @ 2:55p to see what it would do with the blue pixels on the image
            //didn't include the blue data[] so it would leave it alone & only magnify it on the image
           } // this is what controls the pixel brightness in the image
@@ -152,7 +152,6 @@ DON'T DELETE OR TOUCH ME EVER!!!
  </script>
  </head>
 
- <body onload=initialise()>
   <div data-role="page" id="page1">
    <div data-role="header">
     <h1>Image Analysis</h1></div><!-- /header:  topic for the assignment -->
@@ -184,6 +183,7 @@ DON'T DELETE OR TOUCH ME EVER!!!
       </div></center><!-- this allows you to choose an image from your files on your computer/mobile device -->
       <div id="messageDisplayArea"></div>
       
+      <body onload=initialise()> <!-- moved initialiser here instead of in front of page1 -->
       <canvas id="myCanvas" width=550 height=500 style="border:1px solid #d3d3d3;"></canvas>
       <script> /* This script initiates the canvas and puts the text on the canvas "myCanvas" */
         var canvas = document.getElementById('myCanvas');
