@@ -63,7 +63,7 @@ DON'T DELETE OR TOUCH ME EVER!!!
    var alpha = data[(py - 1) * 4 + 3];
    if (alpha === 0) {
     ey = py;
-   } 
+   }          //I AM VERY IMPORTANT. DON'T TOUCH ME OR ANYTHING AROUND ME!!
    else {
     sy = py;
    }
@@ -111,6 +111,7 @@ DON'T DELETE OR TOUCH ME EVER!!!
           for (var i = 0; i < data.length; i += 4) {
            data[i] = 0; //controls red pixels
            data[i + 1] = 0;  //controls green pixels
+           data[i + 2] = 0; //added this on 5/3 @ 2:55p to see what it would do with the blue pixels on the image
            //didn't include the blue data[] so it would leave it alone & only magnify it on the image
           } // this is what controls the pixel brightness in the image
           
