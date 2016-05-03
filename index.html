@@ -28,7 +28,7 @@
   Similarly to App 8, this App is doing some basic image analysis.  Make an app that can compare the color of two tubes that the user selects after an image of the tubes is uploaded.
  
   Known Issues:
-  5/3 @ 3:15p - Initialise function is not defined & erasing the green pixel count turns image green.
+  5/3 @ 3:41p - Initialise function is not defined
 -->
 
  <head>
@@ -103,8 +103,8 @@ DON'T DELETE OR TOUCH ME EVER!!!
           /*  +++++++++++++++ BEGIN IMAGE PROCESSING +++++++++++++++ */
           /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
-          var imageData = mtx.getImageData(0,0, img.naturalWidth, img.naturalHeight);
-          var data = imageData.data; // defines the data
+          //var imageData = mtx.getImageData(0,0, img.naturalWidth, img.naturalHeight);
+          //var data = imageData.data; // defines the data
           
           for (var i = 0; i < data.length; i += 4) {
            data[i] = 0; //controls red pixels
