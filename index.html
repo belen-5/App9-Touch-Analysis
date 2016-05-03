@@ -28,7 +28,7 @@
   Similarly to App 8, this App is doing some basic image analysis.  Make an app that can compare the color of two tubes that the user selects after an image of the tubes is uploaded.
  
   Known Issues:
-  5/3 @ 3:09p - Initialise function is not defined & adding the blue pixel count turned the image black, lol.
+  5/3 @ 3:15p - Initialise function is not defined & erasing the green pixel count turns image green.
 -->
 
  <head>
@@ -103,19 +103,14 @@ DON'T DELETE OR TOUCH ME EVER!!!
           /*  +++++++++++++++ BEGIN IMAGE PROCESSING +++++++++++++++ */
           /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
-          drawImageIOSFix(mtx,img, 0, 0, img.naturalWidth, img.naturalHeight, 0, 0, 550, 500); // adds image on myCanvas2
-          
           var imageData = mtx.getImageData(0,0, img.naturalWidth, img.naturalHeight);
           var data = imageData.data; // defines the data
           
           for (var i = 0; i < data.length; i += 4) {
            data[i] = 0; //controls red pixels
-           //data[i + 1] = 0;  //controls green pixels
+           //data[i + 1] = 0;  //controls green pixels; commented out so that image would display the green
            data[i + 2] = 0; //added this on 5/3 @ 2:55p to see what it would do with the blue pixels on the image
-           //didn't include the blue data[] so it would leave it alone & only magnify it on the image
           } // this is what controls the pixel brightness in the image
-          
-          mtx.putImageData(imageData, 0,0); // overrides myCanvas altered image & displays the blue image on myCanvas2
           
           function initialise() { 
            var canvas = document.getElementById("myCanvas"); //gets a reference to the canvas
@@ -192,15 +187,6 @@ DON'T DELETE OR TOUCH ME EVER!!!
         context.fillStyle = "black";  // determines the color on myCanvas
         context.fillText("Original Image", 175, 250); // changed the text to make it more concise
       </script><!-- the original canvas with image -->
-      
-      <canvas id="myCanvas2" width=550 height=500 style="border:1px solid #d3d3d3;"></canvas>
-      <script>
-        var m = document.getElementById('myCanvas2');
-        var mtx = m.getContext("2d");
-        mtx.font = '25pt Calibri';  // determines the color on myCanvas2
-        mtx.fillStyle = "black";  // determines the color on myCanvas2
-        mtx.fillText("Blue pixel analysis of Original", 75, 250); // changed the text to make it more concise; might change the text for this assignment
-      </script><!-- this is the second canvas with the text on it for the blue pixel image analysis -->
 
     </div><!-- /content:  end of the content/scripts on this page -->
     <div data-role="footer" data-position="fixed">
